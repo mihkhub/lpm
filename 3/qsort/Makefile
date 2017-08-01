@@ -1,9 +1,11 @@
 CC=gcc
-BIN=qsort
+CFLAGS=-O3 -Wall -g -std=gnu99
+LDLIBS=
+BIN=$(shell basename `pwd`)
 all: $(BIN)
 
 $(BIN):	$(BIN).c
-	$(CC) -O3 -Wall -g $^ -o $@
+	$(CC) $(CFLAGS)  $^ -o $@ $(LDLIBS)
 
 clean:
 	$(RM) $(BIN)
